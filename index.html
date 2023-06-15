@@ -10,20 +10,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 
-    <script src="app.js"></script>
+    <script  src="app.js"></script>
 </head>
 
 <body>
-    <div id="content"></div>
-    <script id="tmpl-handlebar" type="text/x-handlebars-template">
-        {{#each this}}
-            {{name}} has {{cars.length}} cars:
-                {{#each cars}}
-                    {{name}} {{model}}
-                {{/each}}
-        {{/each}}
-    </script>
-    <script src="app.js"></script>
+    <div id="page">
+        <div id="content"></div>
+        <div>
+            <button id="trigger_api">LOAD DATA</button>
+        </div>
+        <script id="tmpl-handlebar" type="text/x-handlebars-template">
+            {{#each this}}
+                {{name}} has {{cars.length}} cars:
+                    {{#each cars}}
+                        {{name}} {{model}}
+                    {{/each}}
+            {{/each}}
+        </script>
+        <script src="app.js"></script>
+    </div>
 </body>
 
 </html>

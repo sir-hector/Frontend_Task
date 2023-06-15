@@ -1,22 +1,28 @@
+const API_URL =  'http://localhost:3000';
+
 $(document).ready(function () {
 
     const Car = Backbone.Model.extend({});
     const Cars = Backbone.Collection.extend({
         model: Car,
-        url: 'http://localhost:3000/cars'
+        url: `${API_URL}/cars`
     });
 
     const View = Backbone.View.extend({
-        el: "#content",
+        el: "#page",
         collection: new Cars(),
         template: Handlebars.compile($("#tmpl-handlebar").html()),
+        events: {
+            'click #trigger_api': 'loadData'  
+        },
+        loadData: function () {
+            this.collection.fetch();  
+        },
         initialize: function () {
             this.listenTo(this.collection, 'sync', this.render);
-            this.collection.fetch();
         },
         render: function () {
-            console.log(this.collection.toJSON())
-            this.$el.html(this.template(this.collection.toJSON()));
+            this.$el.find("#content").html(this.template(this.collection.toJSON()));  // make sure you are selecting the correct element to render your template
         }
     })
 
