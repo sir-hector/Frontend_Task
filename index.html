@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTV TASK</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
@@ -14,21 +15,24 @@
 </head>
 
 <body>
-    <div id="page">
+    <div id="page" class="text-center">
         <div id="content"></div>
         <div>
-            <button id="trigger_api">LOAD DATA</button>
+            <button id="trigger_api" class="btn btn-primary">LOAD DATA</button>
         </div>
         <script id="tmpl-handlebar" type="text/x-handlebars-template">
             {{#each this}}
                 {{name}} has {{cars.length}} cars:
-                    {{#each cars}}
-                        {{name}} {{model}}
+                {{#each cars}}
+                <li>
+                    {{name}} {{model}}
+                </li>
                     {{/each}}
             {{/each}}
         </script>
         <script src="app.js"></script>
     </div>
+
 </body>
 
 </html>
