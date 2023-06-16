@@ -18,6 +18,6 @@ $ ->
     initialize: ->
       @listenTo @collection, 'sync', @render
     render: ->
-      @$("#content").html(@template(@collection.toJSON()))  # make sure you are selecting the correct element to render your template
+      @$("#content").html(@template(@collection.toJSON()))  
 
   new View()
