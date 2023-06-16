@@ -23,11 +23,22 @@
         <script id="tmpl-handlebar" type="text/x-handlebars-template">
             {{#each this}}
                 {{name}} has {{cars.length}} cars:
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Car Brand</th>
+                            <th>Model</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
                 {{#each cars}}
-                <li>
-                    {{name}} {{model}}
-                </li>
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{model}}</td>
+                </tr>
                     {{/each}}
+                </tbody>
+            </table>
             {{/each}}
         </script>
         <script src="app.js"></script>
